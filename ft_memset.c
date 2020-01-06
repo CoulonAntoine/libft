@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 10:38:51 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/06 14:28:24 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/06 15:23:07 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		*ft_memset(void *b, int c, size_t len)
 	size_t	i;
 
 	i = 0;
-	while(i < len)
+	while (i < len)
 	{
 		((unsigned char *)b)[i] = (unsigned char)c;
 		i++;
