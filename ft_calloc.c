@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 14:51:00 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/07 15:04:23 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/08 07:02:40 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	size_t		i;
-	size_t		bytes;
+	size_t			i;
+	size_t			bytes;
 	unsigned char	*ptr;
 
 	i = 0;

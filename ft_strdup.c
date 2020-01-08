@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 15:04:36 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/07 15:20:15 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/08 07:06:54 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strdup(const char *s1)
 	size_t	i;
 	char	*str;
 
-	if (!(str = (char *)malloc(ft_strlen(s1))))
+	if (!(str = (char *)malloc(ft_strlen(s1) + sizeof(char))))
 	{
 		errno = ENOMEM;
 		return (NULL);
