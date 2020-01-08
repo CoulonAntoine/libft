@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/07 06:42:37 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/07 10:56:50 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/01/07 11:40:26 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/01/07 12:58:06 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+int			ft_atoi(const char *str)
 {
-	size_t			i;
+	int			i;
+	long int	nbr;
+	int			sign;
 
-	if (!dst && !src)
-		return (NULL);
-	if ((unsigned char *)dst < (unsigned char *)src)
+	i = 0;
+	nbr = 0;
+	sign = 1;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-' && str[i++])
+		sign--;
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
-		i = 0;
-		while (i < len)
-		{
-			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-			i++;
-		}
+		nbr = (nbr * 10) + str[i] - '0';
+		i++;
 	}
-	else
-	{
-		while (len > 0)
-		{
-			((unsigned char *)dst)[len - 1] = ((unsigned char *)src)[len - 1];
-			len--;
-		}
-	}
-	return (dst);
+	if (!sign)
+		nbr *= -1;
+	return ((int)nbr);
 }
