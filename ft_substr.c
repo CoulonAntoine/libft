@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 15:31:28 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/08 07:51:48 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/08 10:52:08 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	str_len;
 	char	*str;
 
-	if (ft_strlen(s) < start || !len)
+	if (!s || !len || ft_strlen(s) < start)
 		return (NULL);
 	i = start;
 	j = 0;
