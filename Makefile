@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/06 10:28:58 by ancoulon          #+#    #+#              #
-#    Updated: 2020/01/09 22:45:22 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/01/09 22:49:26 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c     \
 		  ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c      \
 		  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-SRCS_BONUS	= ft_lstnew.c ft_lstadd_front.c
+SRCS_BONUS	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c
 
 OBJS		= ${SRCS:.c=.o}
 
