@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 12:13:22 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/09 13:24:28 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/09 21:00:37 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static size_t	ft_trimlen(char const *s1, char const *set)
 	size_t		start;
 	size_t		end;
 	size_t		len;
-	size_t		t_len;
 
 	if (!(len = ft_strlen(s1)))
 		return (0);
@@ -59,6 +58,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 	size_t	len;
 	char	*str;
 
+	if (!s1 || !set)
+		return (NULL);
 	len = ft_trimlen(s1, set);
 	i = 0;
 	j = 0;
@@ -71,10 +72,6 @@ char			*ft_strtrim(char const *s1, char const *set)
 		str[j] = s1[i + j];
 		j++;
 	}
-
-}
-
-int				main(void)
-{
-	printf("-> |%lu|\n", ft_trimlen("", ""));
+	str[j] = '\0';
+	return (str);
 }
