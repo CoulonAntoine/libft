@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 11:40:26 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/08 13:38:13 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/10 11:16:07 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int			ft_atoi(const char *str)
 {
 	int				i;
-	unsigned long	nbr;
+	long long		nbr;
 	int				sign;
 
 	i = 0;
@@ -29,10 +29,10 @@ int			ft_atoi(const char *str)
 		sign *= -1;
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
+		if (nbr < 0)
+			return (sign > 0 ? -1 : 0);
 		nbr = (nbr * 10) + str[i] - '0';
 		i++;
 	}
-	if (nbr > 2147483648)
-		return (sign > 0 ? -1 : 0);
 	return (nbr * sign);
 }
