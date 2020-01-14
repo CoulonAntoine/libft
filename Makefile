@@ -6,7 +6,7 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/06 10:28:58 by ancoulon          #+#    #+#              #
-#    Updated: 2020/01/14 06:42:31 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/01/14 10:11:19 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ ${NAME}:	${OBJS}
 
 all:		${NAME}
 
-bonus:		${NAME} ${OBJS_BONUS}
+bonus:		${OBJS_BONUS} all
 			${AR} ${NAME} ${OBJS_BONUS}
 
 clean:

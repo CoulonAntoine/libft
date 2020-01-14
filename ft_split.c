@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 21:02:05 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/14 06:48:07 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/14 12:19:47 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,10 @@ char			**ft_split(char const *s, char c)
 	while (i < size)
 	{
 		if (!(strs[i] = ft_get_word(s, i, c)))
+		{
+			free(strs)
 			return (NULL);
+		}
 		i++;
 	}
 	strs[i] = 0;
