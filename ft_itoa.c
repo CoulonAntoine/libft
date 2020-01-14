@@ -6,13 +6,13 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 21:16:42 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/09 21:18:32 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/14 06:47:18 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_size(long int nbr)
+static int	ft_size(long int nbr)
 {
 	int		count;
 
@@ -27,12 +27,12 @@ static int		ft_size(long int nbr)
 	else
 	{
 		count += ft_size(nbr / 10);
-		count += ft_size(nbr %10);
+		count += ft_size(nbr % 10);
 	}
 	return (count);
 }
 
-static void		ft_add(char *str, char c)
+static void	ft_add(char *str, char c)
 {
 	int		i;
 
@@ -43,7 +43,7 @@ static void		ft_add(char *str, char c)
 	str[i + 1] = '\0';
 }
 
-static void	    ft_write(char *str, long int nbr)
+static void	ft_write(char *str, long int nbr)
 {
 	char	c;
 
@@ -69,7 +69,7 @@ char		*ft_itoa(int n)
 	char	*str;
 
 	if (!(str = malloc(sizeof(char) * (ft_size((long int)n) + 1))))
-    return (NULL);
+		return (NULL);
 	str[0] = '\0';
 	ft_write(str, (long int)n);
 	return (str);
