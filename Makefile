@@ -6,11 +6,13 @@
 #    By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/06 10:28:58 by ancoulon          #+#    #+#              #
-#    Updated: 2020/01/14 10:11:19 by ancoulon         ###   ########.fr        #
+#    Updated: 2020/01/15 07:17:14 by ancoulon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
+
+HEADER		= libft.h
 
 SRCS		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c     \
 			  ft_memchr.c ft_memcmp.c ft_strlen.c ft_isalpha.c ft_isdigit.c    \
@@ -22,6 +24,7 @@ SRCS		= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c     \
 
 SRCS_BONUS	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c          \
 			  ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c       \
+			  ft_lstmap.c
 
 OBJS		= ${SRCS:.c=.o}
 
@@ -33,12 +36,14 @@ AR			= ar rc
 
 RM			= rm -f
 
+NORM		= norminette
+
 CFLAGS		= -Wall -Wextra -Werror
 
 .c.o:
 			${CC} ${CFLAGS} -c $^ -o $@
 
-${NAME}:	${OBJS}
+$(NAME):	${OBJS}
 			${AR} ${NAME} ${OBJS}
 
 all:		${NAME}
@@ -55,4 +60,7 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all bonus clean fclean re 
+nr:		
+			${NORM} ${HEADER} ${SRCS} ${SRCS_BONUS}
+
+.PHONY:		all bonus clean fclean re nr

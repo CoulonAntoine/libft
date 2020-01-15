@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/09 23:42:09 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/15 07:07:02 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/01/15 06:52:42 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/01/15 07:52:14 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*current;
-	t_list	*next;
+	t_list	*lstcpy;
+	t_list	*el;
+	t_list	*elcpy;
 
-	if (!lst || !del)
-		return ;
-	current = *lst;
-	while (current)
+	if (!lst || !f || !del)
+		return (NULL);
+	if (!(lstcpy = ft_lstnew(lst->content)))
+		return (NULL);
+	el = lst;
+	elcpy = lstcpy;
+	while (el->next)
 	{
-		next = current->next;
-		(*del)(current->content);
-		free(current);
-		current = next;
+		el = el->next;
+		if (!(elcpy->next = ft_lstnew(el->content)))
+			return (NULL);
+		elcpy = elcpy->next;
 	}
-	*lst = NULL;
+	return (lstcpy);
 }
