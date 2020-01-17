@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 21:02:05 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/15 06:48:31 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/17 06:38:28 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ static void		ft_clean(char **strs, int i)
 	while (j < i)
 	{
 		free(strs[i]);
-		i++;
+		j++;
 	}
 	free(strs);
 }
