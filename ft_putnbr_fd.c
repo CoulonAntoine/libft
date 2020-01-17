@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 22:11:24 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/09 22:25:06 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/17 07:03:23 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,21 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long int	i;
-	char		c;
+	long int	nbr;
 
-	i = n;
-	if (i < 0)
+	nbr = n;
+	if (nbr < 0)
 	{
 		ft_putchar_fd('-', fd);
-		i *= -1;
+		nbr *= -1;
 	}
-	if (i > 9)
+	if (nbr > 9)
 	{
-		ft_putnbr_fd(i / 10, fd);
-		ft_putnbr_fd(i % 10, fd);
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putnbr_fd(nbr % 10, fd);
 	}
 	else
 	{
-		c = '0' + i;
-		ft_putchar_fd(c, fd);
+		ft_putchar_fd((char)nbr + '0', fd);
 	}
 }
