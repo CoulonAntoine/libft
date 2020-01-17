@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 23:42:09 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/15 07:07:02 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/17 07:19:54 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*current;
-	t_list	*next;
+	t_list	*el;
+	t_list	*tmp;
 
 	if (!lst || !del)
 		return ;
-	current = *lst;
-	while (current)
+	el = *lst;
+	while (el)
 	{
-		next = current->next;
-		(*del)(current->content);
-		free(current);
-		current = next;
+		tmp = el->next;
+		ft_lstdelone(el, del);
+		el = tmp;
 	}
 	*lst = NULL;
 }
