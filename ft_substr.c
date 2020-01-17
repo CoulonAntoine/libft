@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 15:31:28 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/15 07:19:48 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/17 14:22:03 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static char	*ft_emptystr(void)
 char		*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
-	size_t	j;
 	size_t	str_len;
 	char	*str;
 
@@ -33,17 +32,15 @@ char		*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (ft_strlen(s) < start || !len)
 		return (ft_emptystr());
-	i = start;
-	j = 0;
+	i = 0;
 	str_len = ft_strlen(s) - start > len ? len : ft_strlen(s) - start;
 	if (!(str = (char *)malloc(sizeof(char) * (str_len + 1))))
 		return (NULL);
-	while (s[i] && j < len)
+	while (s[start + i] && i < len)
 	{
-		str[j] = s[i];
+		str[i] = s[start + i];
 		i++;
-		j++;
 	}
-	str[j] = '\0';
+	str[i] = '\0';
 	return (str);
 }
