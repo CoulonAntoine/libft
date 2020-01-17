@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 21:21:22 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/17 06:49:42 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/17 09:15:41 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!(str = ft_strdup(s)))
 		return (NULL);
 	i = 0;
-	while (str[i])
+	while (s[i])
 	{
 		str[i] = (*f)(i, s[i]);
 		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }

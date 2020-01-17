@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 23:42:09 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/17 07:19:54 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/17 09:21:23 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*el;
 	t_list	*tmp;
 
-	if (!lst || !del)
+	if (!lst  || !(*lst) || !del)
 		return ;
 	el = *lst;
 	while (el)
