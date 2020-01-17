@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 21:02:05 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/17 06:38:28 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/17 13:30:28 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,15 @@ static char		*ft_get_word(char const *str, int index, char c)
 	return (ft_strndup(&str[i], j - i));
 }
 
-static void		ft_clean(char **strs, int i)
+static void		ft_clean(char **strs, int max)
 {
-	int		j;
+	int		i;
 
-	j = 0;
-	while (j < i)
+	i = 0;
+	while (i < max)
 	{
 		free(strs[i]);
-		j++;
+		i++;
 	}
 	free(strs);
 }
