@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 15:04:36 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/08 07:06:54 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/17 08:55:44 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ char	*ft_strdup(const char *s1)
 	char	*str;
 
 	if (!(str = (char *)malloc(ft_strlen(s1) + sizeof(char))))
-	{
-		errno = ENOMEM;
 		return (NULL);
-	}
 	i = 0;
 	while (s1[i])
 	{
