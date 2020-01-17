@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/15 06:52:42 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/15 07:52:14 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/17 07:46:29 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*lstcpy;
+	t_list	*start;
 	t_list	*el;
-	t_list	*elcpy;
 
 	if (!lst || !f || !del)
+		return (0);
+	if (!(start = ft_lstnew(f(lst->content))))
 		return (NULL);
-	if (!(lstcpy = ft_lstnew(lst->content)))
-		return (NULL);
-	el = lst;
-	elcpy = lstcpy;
-	while (el->next)
+	el = start;
+	while (lst->next)
 	{
 		el = el->next;
-		if (!(elcpy->next = ft_lstnew(el->content)))
+		lst = lst->next;
+		if (!(el = ft_lstnew(f(lst->content))))
+		{
+			ft_lstclear(&start, del);
 			return (NULL);
-		elcpy = elcpy->next;
+		}
 	}
-	return (lstcpy);
+	return (start);
 }
