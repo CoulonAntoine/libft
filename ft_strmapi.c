@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 21:21:22 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/14 06:46:29 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/17 06:49:42 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (str[i])
 	{
-		str[i] = (*f)(i, str[i]);
+		str[i] = (*f)(i, s[i]);
 		i++;
 	}
 	return (str);
