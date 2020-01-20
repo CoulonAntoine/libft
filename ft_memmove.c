@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 06:42:37 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/08 13:57:41 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/20 13:34:04 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	if (!dst && !src)
 		return (NULL);
+	if (dst == src)
+		return (dst);
 	if ((unsigned char *)dst < (unsigned char *)src)
 	{
 		i = 0;
