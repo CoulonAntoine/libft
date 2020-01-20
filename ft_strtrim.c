@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 12:13:22 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/17 16:02:23 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/20 13:00:21 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static size_t	ft_isset(char c, char const *set)
 {
 	size_t	i;
 
+	if (!set)
+		return (0);
 	i = 0;
 	while (set[i])
 	{
@@ -32,7 +34,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 	long	start;
 	long	end;
 
-	if (!s1 || !set)
+	if (!s1)
 		return (NULL);
 	start = 0;
 	while (s1[start] && ft_isset(s1[start], set))

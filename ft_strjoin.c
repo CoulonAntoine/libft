@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/08 10:53:29 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/17 15:02:21 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/20 12:58:33 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,18 @@ static char	*ft_strcat(char *dest, const char *src)
 
 char		*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	len;
 	char	*str;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	if (!s1 || !s2)
-		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	if (!(str = (char *)malloc(sizeof(char) * len)))
+	s1_len = (s1) ? ft_strlen(s1) : 0;
+	s2_len = (s2) ? ft_strlen(s2) : 0;
+	if (!(str = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1))))
 		return (NULL);
 	str[0] = '\0';
-	ft_strcat(str, s1);
-	ft_strcat(str, s2);
+	if (s1)
+		ft_strcat(str, s1);
+	if (s2)
+		ft_strcat(str, s2);
 	return (str);
 }

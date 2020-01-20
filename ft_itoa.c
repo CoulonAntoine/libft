@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 21:16:42 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/14 06:47:18 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/20 12:45:36 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	ft_add(char *str, char c)
+{
+	int		i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	str[i] = c;
+	str[i + 1] = '\0';
+}
 
 static int	ft_size(long int nbr)
 {
@@ -32,18 +43,7 @@ static int	ft_size(long int nbr)
 	return (count);
 }
 
-static void	ft_add(char *str, char c)
-{
-	int		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	str[i] = c;
-	str[i + 1] = '\0';
-}
-
-static void	ft_write(char *str, long int nbr)
+static void	ft_writenbr(char *str, long int nbr)
 {
 	char	c;
 
@@ -59,8 +59,8 @@ static void	ft_write(char *str, long int nbr)
 	}
 	else
 	{
-		ft_write(str, nbr / 10);
-		ft_write(str, nbr % 10);
+		ft_writenbr(str, nbr / 10);
+		ft_writenbr(str, nbr % 10);
 	}
 }
 
@@ -71,6 +71,6 @@ char		*ft_itoa(int n)
 	if (!(str = malloc(sizeof(char) * (ft_size((long int)n) + 1))))
 		return (NULL);
 	str[0] = '\0';
-	ft_write(str, (long int)n);
+	ft_writenbr(str, (long int)n);
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 21:02:05 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/17 13:30:28 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/20 13:18:07 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static char		*ft_strndup(char const *str, int len)
 	int		i;
 	char	*cpy;
 
+	if (!str)
+		return (NULL);
 	if (!(cpy = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	i = 0;
@@ -29,93 +31,63 @@ static char		*ft_strndup(char const *str, int len)
 	return (cpy);
 }
 
-static int		ft_word_count(char const *str, char c)
-{
-	int		i;
-	int		in_w;
-	int		wc;
-
-	i = 0;
-	in_w = 0;
-	wc = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-		{
-			wc += in_w ? 1 : 0;
-			in_w = 0;
-		}
-		else
-			in_w = 1;
-		i++;
-	}
-	wc += in_w ? 1 : 0;
-	return (wc);
-}
-
-static char		*ft_get_word(char const *str, int index, char c)
-{
-	int		i;
-	int		j;
-	int		in_w;
-	int		wc;
-
-	i = 0;
-	in_w = 0;
-	wc = 0;
-	while (str[i] && wc < index)
-	{
-		if (str[i] == c)
-		{
-			wc += in_w ? 1 : 0;
-			in_w = 0;
-		}
-		else
-			in_w = 1;
-		i++;
-	}
-	while (str[i] && str[i] == c)
-		i++;
-	j = i;
-	while (str[j] && str[j] != c)
-		j++;
-	return (ft_strndup(&str[i], j - i));
-}
-
-static void		ft_clean(char **strs, int max)
+static char		**ft_clean(char **strs)
 {
 	int		i;
 
 	i = 0;
-	while (i < max)
+	while (strs[i])
 	{
 		free(strs[i]);
 		i++;
 	}
 	free(strs);
+	return (NULL);
+}
+
+static int		ft_wc(char const *str, char c)
+{
+	int		i;
+	int		wc;
+
+	wc = 0;
+	if (str[0] != c)
+		wc++;
+	i = 1;
+	while (str[i])
+	{
+		if (str[i] != c && str[i - 1] == c)
+			wc++;
+		i++;
+	}
+	return (wc);
 }
 
 char			**ft_split(char const *s, char c)
 {
-	int		i;
-	int		size;
+	size_t	i;
+	size_t	j;
+	size_t	str_i;
 	char	**strs;
 
-	if (!s || !c)
+	if (!s || !(strs = malloc(sizeof(char *) * (ft_wc(s, c) + 1))))
 		return (NULL);
 	i = 0;
-	size = ft_word_count(s, c);
-	if (!(strs = malloc(sizeof(char *) * (size + 1))))
-		return (NULL);
-	while (i < size)
+	str_i = 0;
+	while (s[i])
 	{
-		if (!(strs[i] = ft_get_word(s, i, c)))
+		j = 0;
+		while (s[i + j] && s[i + j] != c)
+			j++;
+		if (j)
 		{
-			ft_clean(strs, i);
-			return (NULL);
+			if (!(strs[str_i] = ft_strndup((char *)&s[i], j)))
+				return (ft_clean(strs));
+			str_i++;
+			i += j;
 		}
-		i++;
+		i += (s[i]) ? 1 : 0;
 	}
-	strs[i] = 0;
+	strs[str_i] = NULL;
 	return (strs);
 }
