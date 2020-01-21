@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 08:51:28 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/07 08:57:53 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/21 12:28:44 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int		ft_toupper(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	return (c);
+	return ((ft_islower(c) ? c - 32 : c));
 }

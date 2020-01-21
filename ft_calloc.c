@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 14:51:00 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/17 08:55:25 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/21 12:30:03 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,10 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	size_t			i;
-	size_t			bytes;
-	unsigned char	*ptr;
+	t_uchar	*ptr;
 
-	i = 0;
-	bytes = count * size;
-	if (!(ptr = (unsigned char *)malloc(bytes)))
+	if (!(ptr = malloc(count * size)))
 		return (NULL);
-	while (i < bytes)
-	{
-		ptr[i] = 0;
-		i++;
-	}
-	return ((void *)ptr);
+	ft_bzero(ptr, count * size);
+	return (ptr);
 }

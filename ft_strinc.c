@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strinc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/09 22:00:53 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/21 11:43:06 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/01/21 12:25:48 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/01/21 12:36:08 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+size_t	ft_strinc(char c, char const *str)
 {
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
+	size_t	i;
+
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i])
+	{
+		if (c == str[i])
+			return (1);
+		i++;
+	}
+	return (0);
 }

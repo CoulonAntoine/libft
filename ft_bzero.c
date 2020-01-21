@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/06 14:13:08 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/06 14:28:42 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/21 11:48:22 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 void		ft_bzero(void *s, size_t n)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < n)
-	{
-		((unsigned char *)s)[i] = 0;
-		i++;
-	}
+	if (s)
+		ft_memset(s, 0, n);
 }

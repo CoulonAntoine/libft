@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/09 22:00:53 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/21 11:43:06 by ancoulon         ###   ########.fr       */
+/*   Created: 2020/01/21 12:13:29 by ancoulon          #+#    #+#             */
+/*   Updated: 2020/01/21 12:35:46 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+char		*ft_strndup(char const *str, int len)
 {
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
+	int		i;
+	char	*cpy;
+
+	if (!str)
+		return (NULL);
+	if (!(cpy = malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	i = 0;
+	while (str[i] && i < len)
+	{
+		cpy[i] = str[i];
+		i++;
+	}
+	cpy[i] = '\0';
+	return (cpy);
 }

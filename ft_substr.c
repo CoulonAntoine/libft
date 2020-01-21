@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 15:31:28 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/20 13:24:50 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/21 12:27:19 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char		*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	s_len = ft_strlen(s);
 	if (s_len < start)
-		return (ft_calloc(1, 1));
+		return (ft_strdup(""));
 	i = 0;
 	str_len = (start + len < s_len) ? len : s_len - start;
 	if (!(str = (char *)malloc(sizeof(char) * (str_len + 1))))

@@ -6,7 +6,7 @@
 /*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 09:16:03 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/07 09:36:13 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/21 12:24:47 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strrchr(const char *s, int c)
 	int	i;
 	int	last;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	last = -1;
 	while (s[i])

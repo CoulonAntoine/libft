@@ -3,33 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/09 21:02:05 by ancoulon          #+#    #+#             */
-/*   Updated: 2020/01/20 13:18:07 by ancoulon         ###   ########.fr       */
+/*   Updated: 2020/01/21 12:13:18 by ancoulon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char		*ft_strndup(char const *str, int len)
-{
-	int		i;
-	char	*cpy;
-
-	if (!str)
-		return (NULL);
-	if (!(cpy = malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	i = 0;
-	while (str[i] && i < len)
-	{
-		cpy[i] = str[i];
-		i++;
-	}
-	cpy[i] = '\0';
-	return (cpy);
-}
 
 static char		**ft_clean(char **strs)
 {
