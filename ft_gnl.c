@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_gnl.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ancoulon <ancoulon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ancoulon <ancoulon@student.s19.be>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 04:55:16 by ancoulon          #+#    #+#             */
 /*   Updated: 2020/02/05 04:55:38 by ancoulon         ###   ########.fr       */
